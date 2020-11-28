@@ -1,3 +1,4 @@
+## Merge Cols in different types and steps
 ColMerger = function(data,type,step){
   dscData=c()
   
@@ -22,3 +23,12 @@ ColMerger = function(data,type,step){
   }
   return(dscData)
 }
+
+
+
+## calculate statistical mode
+GetMode = function(x){
+  u = unique(x)
+  u[which((tabulate(match(x,u))) == max(tabulate((match(x,u)))))]
+}
+
