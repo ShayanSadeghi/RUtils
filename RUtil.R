@@ -68,4 +68,29 @@ SelectBestEstimator = function(data){
 }
 
 
+## Smooth noise by binning_mean 
+BinSmooth = function(data, bins){
+  newData = data
+  m = c()  
+  i = 1
+  # Calculate mean for each bin
+  while(i <= length(bins)){
+    binData = newData[newData >= bins[[i]][1] & newData <= bins[[i]][2]]
+    m = append(m, mean(binData))
+    i = i+1
+  }
+  
+  i = 1
+  # Set mean for each value in bin
+  while(i <= length(bins)){
+    newData[newData >= bins[[i]][1] & newData <= bins[[i]][2]] <- m[i]
+    m = append(m, mean(binData))
+    i = i+1
+  }
+  
+  return(newData)
+}
+
+
+
 
