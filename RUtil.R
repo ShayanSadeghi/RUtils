@@ -93,4 +93,14 @@ BinSmooth = function(data, bins){
 
 
 
+## Normalize a Data frame - using min-max
+NormalizeDataFrame = function(dataset){
+  l = c(1:length(dataset))
+  for(i in l){
+    dataset[i] <- (dataset[i]-min(dataset[i])) / (max(dataset[i]) - min(dataset[i]))
+  }
+  return(dataset)
+}
+
+
 
